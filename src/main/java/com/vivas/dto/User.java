@@ -8,10 +8,23 @@ public class User {
     private int currentBalace;
     private int discount;
 
+    public static void main(String[] args) {
+        User user1 = new User("duyot",1,1);
+        User user2 = new User("duyot",1,1);
+        System.out.println(user1.hashCode());
+        System.out.println(user2.hashCode());
+        System.out.println("A".hashCode());
+    }
+
     public User(String username, int currentBalace, int discount) {
         this.username = username;
         this.currentBalace = currentBalace;
         this.discount = discount;
+    }
+
+    @Override
+    public boolean equals(Object object){
+        return (object instanceof User) && this.username == ((User)object).getUsername();
     }
 
     public void printUsername(){
