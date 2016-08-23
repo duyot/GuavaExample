@@ -1,12 +1,22 @@
 package com.vivas.dto;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by duyot on 8/1/2016.
  */
+@XmlRootElement
 public class User {
+
     private String username;
     private int currentBalace;
     private int discount;
+
+
+    public User() {
+    }
 
     public static void main(String[] args) {
         User user1 = new User("duyot",1,1);

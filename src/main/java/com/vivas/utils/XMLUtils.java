@@ -1,6 +1,7 @@
 package com.vivas.utils;
 
 import com.vivas.dto.RegisterRequest;
+import com.vivas.dto.User;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -29,14 +30,14 @@ public class XMLUtils {
 
     }
 
-    public static RegisterRequest xmlToObject(String xmlContent){
+    public static <T> T xmlToObject(String xmlContent,Class objectClass){
         JAXBContext jaxbContext = null;
         try {
-            jaxbContext = JAXBContext.newInstance(RegisterRequest.class);
+            jaxbContext = JAXBContext.newInstance(objectClass);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
             StringReader reader = new StringReader(xmlContent);
-            return (RegisterRequest) unmarshaller.unmarshal(reader);
+            return (T) unmarshaller.unmarshal(reader);
         } catch (JAXBException e) {
             e.printStackTrace();
         }
@@ -55,6 +56,10 @@ public class XMLUtils {
 //        String xmlRR = XMLUtils.objectToXMLString(registerRequest);
 //        System.out.println(xmlRR);
 //        System.out.println(xmlToObject(xmlRR).getUserName());
+        User u = new User("duyot",1,2);
+        String userXML = XMLUtils.objectToXMLString(u);
+        System.out.println(userXML);
+        User userFromXML = XMLUtils.xmlToObject(userXML,User.class);
 
     }
 }

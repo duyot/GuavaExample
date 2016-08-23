@@ -1,4 +1,4 @@
-package com.vivas.jodatime;
+package com.vivas.utils;
 
 import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
@@ -7,7 +7,7 @@ import org.joda.time.LocalTime;
 /**
  * Created by duyot on 8/9/2016.
  */
-public class Test {
+public class JodaTimeUtils {
 
     private static void test(){
         LocalDate localDate = new LocalDate();
@@ -19,6 +19,6 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        Test.test();
+        JodaTimeUtils.test();
     }
 }
