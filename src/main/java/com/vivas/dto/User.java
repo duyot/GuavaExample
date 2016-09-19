@@ -2,14 +2,13 @@ package com.vivas.dto;
 
 import com.vivas.generic.BaseModel;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 
 /**
  * Created by duyot on 8/1/2016.
  */
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class User extends BaseModel{
 
     private String username;
