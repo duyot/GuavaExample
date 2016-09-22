@@ -4,10 +4,19 @@ import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 import org.joda.time.LocalTime;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 /**
  * Created by duyot on 8/9/2016.
  */
 public class JodaTimeUtils {
+
+    public static void testNumberFormat(){
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(Locale.JAPANESE);
+        double x = 1.90;
+        System.out.println(numberFormat.format(x));
+    }
 
     private static void test(){
         LocalDate localDate = new LocalDate();
@@ -19,6 +28,6 @@ public class JodaTimeUtils {
     }
 
     public static void main(String[] args) {
-        JodaTimeUtils.test();
+        JodaTimeUtils.testNumberFormat();
     }
 }

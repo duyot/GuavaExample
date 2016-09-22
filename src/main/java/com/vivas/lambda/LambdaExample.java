@@ -6,10 +6,7 @@ import com.vivas.dto.User;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -17,6 +14,17 @@ import java.util.stream.Collectors;
  * Created by duyot on 8/3/2016.
  */
 public class LambdaExample {
+
+
+    //sort
+    public void sort(List<User> lstUser){
+        lstUser.sort((User a,User b)-> a.getUsername().compareTo(b.getUsername()));
+        lstUser.forEach(dev -> System.out.println(dev.getUsername()));
+    }
+    //
+
+
+
 
     public static List<User> initListUser(){
         List<User> lstUsers = Lists.newArrayList();
@@ -29,7 +37,7 @@ public class LambdaExample {
 
     public static void testPerformaceWithLambda(List<User> lstUser){
         long startime = System.currentTimeMillis();
-//        System.out.println("Number: "+ searchUserByPredicate(lstUser,p -> p.getCurrentBalace() > 5000).size());
+        System.out.println("Number: "+ searchUserByPredicate(lstUser,p -> p.getCurrentBalace() > 5000).size());
         System.out.println("Lambda procession time: "+ (System.currentTimeMillis() - startime)+ "ms");
     }
     public static void testPerformaceWithFor(List<User> lstUser){
@@ -46,12 +54,11 @@ public class LambdaExample {
 
     private static void test(){
         List<String> lstName = Lists.newArrayList("New York","London","Paris");
-//        lstName.forEach(value -> System.out.println(value));
+        lstName.forEach(value -> System.out.println(value));
     }
 
     public static List<User> searchUserByPredicate(List<User> lstUser, Predicate<User> predicate){
-//        return lstUser.stream().filter(predicate).collect(Collectors.toList());
-        return null;
+        return lstUser.stream().filter(predicate).collect(Collectors.toList());
     }
 
     private static void testDateTime(){
