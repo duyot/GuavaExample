@@ -1,16 +1,15 @@
 package com.vivas.utils;
 
-import com.vivas.dto.RegisterRequest;
-import com.vivas.dto.TCBRequestMT;
-import com.vivas.dto.User;
-
 import javax.xml.bind.*;
 import javax.xml.namespace.QName;
-import javax.xml.stream.*;
-import javax.xml.transform.stream.StreamSource;
-import java.io.*;
-
-import static javafx.scene.input.KeyCode.T;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.XMLStreamReader;
+import javax.xml.stream.XMLStreamWriter;
+import java.io.ByteArrayOutputStream;
+import java.io.Reader;
+import java.io.StringReader;
+import java.io.StringWriter;
 
 /**
  * Created by duyot on 7/11/2016.
@@ -20,12 +19,8 @@ public class XMLUtils {
 
 
     public static void main(String[] args) {
-//        TCBRequestMT tcbRequestMT = new TCBRequestMT();
-//        tcbRequestMT.setMsgText("abc");
-//        tcbRequestMT = XMLUtils.xmlSOAPToObject("<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://www.w3.org/2001/XMLSchema-instance\"> <soap:Body> <SendSMS xmlns=\"http://pc.vn/mtservice/\"> <MT> <MsgID>string</MsgID> <Sender>string</Sender> <Mobinumber>string</Mobinumber> <MsgText>string</MsgText> <MsgType>string</MsgType> <MsgTime>string</MsgTime> <MoID>string</MoID> <Priority>int</Priority> <LocalTime>string</LocalTime> <Extension>string</Extension> <Signature>this is signature</Signature> </MT> </SendSMS> </soap:Body> </soap:Envelope>","MT",TCBRequestMT.class);
-//        System.out.println(tcbRequestMT.getSignature());
-//        System.out.println(XMLUtils.objectToXMLString(tcbRequestMT));
-
+      com.vivas.utils.User user = new com.vivas.utils.User("duyot","sdf");
+        System.out.println(XMLUtils.objectToXMLString(user));
 
     }
 
